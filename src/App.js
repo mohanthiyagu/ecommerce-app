@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductList from "./components/ProductList";
 import ProductDetail from "./components/ProductDetail";
@@ -10,7 +10,6 @@ import "./App.css";
 function Navbar() {
   const cart = useSelector((state) => state.cart);
 
-  // Calculate total quantity in cart
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -55,7 +54,7 @@ function Navbar() {
 
 function App() {
   return (
-    <Router basename="/ecommerce-app">
+    <Router>
       <div style={{ padding: "20px" }}>
         <Navbar />
 
