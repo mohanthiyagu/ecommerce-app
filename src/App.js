@@ -55,7 +55,7 @@ function Navbar() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ecommerce-app">
       <div style={{ padding: "20px" }}>
         <Navbar />
 
