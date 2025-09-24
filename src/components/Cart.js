@@ -7,7 +7,6 @@ export default function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  // Calculate totals
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -18,7 +17,7 @@ export default function Cart() {
 
       {cart.map((item) => (
         <div key={item.id} className="cart-item">
-          {/* Product Image */}
+          
           <img
             src={item.thumbnail}
             alt={item.title}
@@ -30,13 +29,11 @@ export default function Cart() {
             }}
           />
 
-          {/* Product Details */}
           <div style={{ flex: 1 }}>
             <h3>{item.title}</h3>
             <p>₹{item.price}</p>
           </div>
 
-          {/* Quantity Controls */}
           <div className="cart-item-controls">
             <button onClick={() => dispatch(decreaseQty(item.id))}>-</button>
             <span>{item.quantity}</span>
@@ -51,7 +48,6 @@ export default function Cart() {
         </div>
       ))}
 
-      {/* Cart Summary */}
       {cart.length > 0 && (
         <div className="cart-summary">
           <h3>Total Items: {totalItems}</h3>

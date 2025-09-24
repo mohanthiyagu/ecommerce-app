@@ -3,31 +3,31 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { addToCart } from "../features/cartSlice";
-import Loader from "./Loader"; // ✅ import your Loader component
+import Loader from "./Loader"; 
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ loading state
+  const [loading, setLoading] = useState(true); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        setLoading(true); // start loader
+        setLoading(true); 
         const res = await axios.get(`https://dummyjson.com/products/${id}`);
         setProduct(res.data);
       } catch (error) {
         console.error("Error fetching product:", error);
       } finally {
-        setLoading(false); // stop loader
+        setLoading(false); 
       }
     };
     fetchProduct();
   }, [id]);
 
-  if (loading) return <Loader />; // ✅ show Loader while fetching
+  if (loading) return <Loader />; 
 
   if (!product) return <p>Product not found</p>;
 
