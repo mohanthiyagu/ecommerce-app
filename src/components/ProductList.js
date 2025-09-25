@@ -12,7 +12,7 @@ export default function ProductList() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-    if (status === "loading") return <Loader/>;
+  if (status === "loading") return <Loader/>;
   if (status === "failed") return <p>Error loading products</p>;
 
   return (

@@ -10,8 +10,8 @@ import "./App.css";
 function Navbar() {
   const cart = useSelector((state) => state.cart);
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
+  // const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalItems = cart.length;
   return (
     <nav style={{
       display: "flex",
